@@ -16,7 +16,7 @@ public class TimeSlotController {
     @Autowired
     private TimeSlotService service;
 
-    @GetMapping("/")
+    @GetMapping("/available")
     public List<TimeSlot> getAll(){
         return service.getAll();
     }

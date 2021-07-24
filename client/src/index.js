@@ -5,6 +5,7 @@ import {BrowserRouter,Switch, Route, Redirect} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 import LoginComponent from "./component/LoginComponent";
 import SignupComponent from "./component/SignupComponent";
+import HomeComponent from "./component/HomeComponent";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.render(
               </Route>
               <Route path="/login" component={LoginComponent}/>
               <Route path="/signup" component={SignupComponent}/>
+              <Route path="/home" component={HomeComponent}/>
               <Route path="*">
                   <Redirect to={"/home"}/>
               </Route>

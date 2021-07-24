@@ -20,6 +20,7 @@ class LoginComponent extends React.Component{
                     if(res.data===""){
                         alert("Login failed")
                     }else{
+                        localStorage.setItem("jwt",res.data)
                         window.location = "/home"
                     }
                 })
