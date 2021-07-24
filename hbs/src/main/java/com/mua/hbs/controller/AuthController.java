@@ -15,7 +15,7 @@ public class AuthController {
     @Autowired
     private AuthService service;
 
-    @PostMapping("/join")
+    @PostMapping("/signup")
     public Boolean join(@RequestBody LoginCredential loginCredential){
         return service.join(loginCredential);
     }
