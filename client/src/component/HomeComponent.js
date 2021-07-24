@@ -22,7 +22,8 @@ class HomeComponent extends React.Component{
             .get("/timeslot/available")
             .then((res)=>{
                 this.setState({
-                    list:res.data
+                    list:res.data,
+                    disable:false
                 })
             })
     }

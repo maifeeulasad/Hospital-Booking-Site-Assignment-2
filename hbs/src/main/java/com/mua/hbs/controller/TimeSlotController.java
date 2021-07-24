@@ -1,5 +1,6 @@
 package com.mua.hbs.controller;
 
+import com.mua.hbs.dto.TimeSlotRestricted;
 import com.mua.hbs.model.TimeSlot;
 import com.mua.hbs.service.TimeSlotService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class TimeSlotController {
     private TimeSlotService service;
 
     @GetMapping("/available")
-    public List<TimeSlot> getAll(){
+    public List<TimeSlotRestricted> getAll(){
         return service.getAll();
     }
 

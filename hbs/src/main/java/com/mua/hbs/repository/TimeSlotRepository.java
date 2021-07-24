@@ -1,5 +1,6 @@
 package com.mua.hbs.repository;
 
+import com.mua.hbs.dto.TimeSlotRestricted;
 import com.mua.hbs.model.TimeSlot;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +13,6 @@ public interface TimeSlotRepository extends JpaRepository<TimeSlot,Long> {
 
     List<TimeSlot>findByTimeSlotId(Long timeSlotId);
 
-    @Query("select ts from TimeSlot ts where ts.taken=false")
-    List<TimeSlot>findAvailable();
+    @Query("select new com.mua.hbs.dto.TimeSlotRestricted(ts) from TimeSlot ts where ts.taken=false")
+    List<TimeSlotRestricted>findAvailable();
 }

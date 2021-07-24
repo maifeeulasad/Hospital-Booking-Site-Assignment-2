@@ -1,5 +1,6 @@
 package com.mua.hbs.service;
 
+import com.mua.hbs.dto.TimeSlotRestricted;
 import com.mua.hbs.model.TimeSlot;
 import com.mua.hbs.model.User;
 import com.mua.hbs.model.UserPrincipal;
@@ -22,7 +23,7 @@ public class TimeSlotService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<TimeSlot> getAll(){
+    public List<TimeSlotRestricted> getAll(){
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(authentication.isAuthenticated()) {
             return timeSlotRepository.findAvailable();
