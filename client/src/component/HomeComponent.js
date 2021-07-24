@@ -11,7 +11,8 @@ class HomeComponent extends React.Component{
         this.state={
             list:[],
             disable:false,
-            update:false
+            update:false,
+            isAdmin:false
         }
     }
 
@@ -26,8 +27,20 @@ class HomeComponent extends React.Component{
             })
     }
 
+    checkAdmin = () => {
+        http
+            .http
+            .get("/user/isadmin")
+            .then((res)=>{
+                this.setState({
+                    isAdmin:true
+                })
+            })
+    }
+
     componentDidMount() {
         this.fetchList();
+        this.checkAdmin();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
