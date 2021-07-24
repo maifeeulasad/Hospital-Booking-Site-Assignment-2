@@ -4,6 +4,7 @@ import com.mua.hbs.dto.TimeSlotRestricted;
 import com.mua.hbs.model.TimeSlot;
 import com.mua.hbs.model.User;
 import com.mua.hbs.model.UserPrincipal;
+import com.mua.hbs.model.UserType;
 import com.mua.hbs.repository.TimeSlotRepository;
 import com.mua.hbs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,9 @@ public class TimeSlotService {
             UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
             List<User> users = userRepository.findByLoginCredentialUsername(userPrincipal.getUsername());
             User user=users.get(0);
+            if(user.getUserType()== UserType.ADMIN){
+                return false;
+            }
             List<TimeSlot>timeSlots = timeSlotRepository.findByTimeSlotId(timeSlotRec.getTimeSlotId());
             TimeSlot timeSlot = timeSlots.get(0);
             timeSlot.setTaken(true);

@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from "./Item";
 import http from "../network/http";
-
+import {TextField} from "@material-ui/core";
 import './common.css'
 
 class HomeComponent extends React.Component{
@@ -12,7 +12,9 @@ class HomeComponent extends React.Component{
             list:[],
             disable:false,
             update:false,
-            isAdmin:false
+            isAdmin:false,
+            startTime:'',
+            endTime:'',
         }
     }
 
@@ -76,12 +78,48 @@ class HomeComponent extends React.Component{
         })
     }
 
+    renderTimePicker = () => {
+        return(
+            <div>
+                <TextField
+                    id="datetime-local"
+                    label="Starting Time"
+                    type="datetime-local"
+                    defaultValue="2017-05-24T10:30"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    onChange={(e)=>{
+                        this.setState({
+                            startTime:e.target.value+":00.000000"
+                        })
+                    }}
+                />
+                <TextField
+                    id="datetime-local"
+                    label="End Time"
+                    type="datetime-local"
+                    defaultValue="2017-05-24T10:30"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    onChange={(e)=>{
+                        this.setState({
+                            endTime:e.target.value+":00.000000"
+                        })
+                    }}
+                />
+            </div>
+        )
+    }
+
     render() {
         return(
             <div>
                 <h1>home</h1>
                 <div className={this.state.disable ? "disabled" : ""}>
                     {this.renderList()}
+                    {this.state.isAdmin && this.renderTimePicker()}
                 </div>
             </div>
         )
