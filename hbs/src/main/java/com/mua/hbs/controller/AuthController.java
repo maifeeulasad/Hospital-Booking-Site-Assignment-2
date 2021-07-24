@@ -20,4 +20,9 @@ public class AuthController {
         return service.join(loginCredential);
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody LoginCredential loginCredential){
+        return service.login(loginCredential);
+    }
+
 }
