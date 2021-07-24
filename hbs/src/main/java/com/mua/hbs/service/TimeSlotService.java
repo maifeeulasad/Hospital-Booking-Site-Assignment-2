@@ -63,4 +63,20 @@ public class TimeSlotService {
         }
     }
 
+    public Boolean create(TimeSlot timeSlot){
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication.isAuthenticated()) {
+            UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+            List<User> users = userRepository.findByLoginCredentialUsername(userPrincipal.getUsername());
+            User user=users.get(0);
+            if(user.getUserType()!= UserType.ADMIN){
+                return false;
+            }
+            timeSlotRepository.save(timeSlot);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

@@ -30,4 +30,10 @@ public class TimeSlotController {
         return service.book(timeSlot);
     }
 
+    @PostMapping("/create")
+    public Boolean create(@RequestBody TimeSlot timeSlot){
+        return service.create(timeSlot);
+    }
+
+
 }

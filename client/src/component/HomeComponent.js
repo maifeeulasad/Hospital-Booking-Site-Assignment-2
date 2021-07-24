@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from "./Item";
 import http from "../network/http";
-import {TextField} from "@material-ui/core";
+import {TextField,Button} from "@material-ui/core";
 import './common.css'
 
 class HomeComponent extends React.Component{
@@ -85,7 +85,7 @@ class HomeComponent extends React.Component{
                     id="datetime-local"
                     label="Starting Time"
                     type="datetime-local"
-                    defaultValue="2017-05-24T10:30"
+                    defaultValue={""}
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -99,7 +99,7 @@ class HomeComponent extends React.Component{
                     id="datetime-local"
                     label="End Time"
                     type="datetime-local"
-                    defaultValue="2017-05-24T10:30"
+                    defaultValue={""}
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -109,6 +109,30 @@ class HomeComponent extends React.Component{
                         })
                     }}
                 />
+                <Button onClick={()=>{
+                    let startTime = this.state.startTime
+                    let endTime = this.state.endTime
+                    if(startTime && endTime){
+                        http
+                            .http
+                            .post("/timeslot/create",{
+                                startTime:startTime,
+                                endTime:endTime
+                            })
+                            .then((res)=>{
+                                if(res.data===true){
+                                    this.setState({
+                                        update:!this.state.update
+                                    })
+                                }else{
+                                    alert("Creation failed")
+                                }
+                            })
+                    }
+                }
+                }>
+                    Create
+                </Button>
             </div>
         )
     }
