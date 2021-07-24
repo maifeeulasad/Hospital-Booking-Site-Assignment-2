@@ -23,10 +23,19 @@ public class TimeSlotService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<TimeSlotRestricted> getAll(){
+    public List<TimeSlotRestricted> getAllAvailable(){
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(authentication.isAuthenticated()) {
             return timeSlotRepository.findAvailable();
+        }else{
+            return new ArrayList<>();
+        }
+    }
+
+    public List<TimeSlot> getAll(){
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication.isAuthenticated()) {
+            return timeSlotRepository.findAll();
         }else{
             return new ArrayList<>();
         }

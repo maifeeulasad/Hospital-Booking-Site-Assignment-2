@@ -1,5 +1,6 @@
 import React from 'react'
 import http from "../network/http";
+import UserDetails from "./UserDetails";
 
 class Item extends React.Component{
 
@@ -25,6 +26,7 @@ class Item extends React.Component{
                     this.onClick(this.props.item["timeSlotId"])
                 }}>
                 <div>{this.props.item["startTime"]+"~"+this.props.item["endTime"]}</div>
+                {this.props.isAdmin && <UserDetails user={this.props.item["user"]}/>}
             </div>
         )
     }

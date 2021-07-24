@@ -16,7 +16,12 @@ public class TimeSlotController {
     private TimeSlotService service;
 
     @GetMapping("/available")
-    public List<TimeSlotRestricted> getAll(){
+    public List<TimeSlotRestricted> getAllAvailable(){
+        return service.getAllAvailable();
+    }
+
+    @GetMapping("/detailed")
+    public List<TimeSlot> getAll(){
         return service.getAll();
     }
 

@@ -34,25 +34,41 @@ class HomeComponent extends React.Component{
             .get("/user/isadmin")
             .then((res)=>{
                 this.setState({
-                    isAdmin:true
+                    isAdmin:res.data
+                })
+            })
+    }
+
+    fetchDetailedList = () => {
+        http
+            .http
+            .get("/timeslot/detailed")
+            .then((res)=>{
+                this.setState({
+                    list:res.data,
+                    disable:false
                 })
             })
     }
 
     componentDidMount() {
-        this.fetchList();
         this.checkAdmin();
+        this.fetchList();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.state.update!==prevState.update){
             this.fetchList();
         }
+        if(this.state.isAdmin===true && prevState.isAdmin===false){
+            this.fetchDetailedList();
+        }
     }
 
     renderList = () => {
         return this.state.list.map((item)=>{
             return <Item
+                isAdmin={this.state.isAdmin}
                 item={item}
                 key={item["timeSlotId"]}
                 onUpdate={()=>{this.setState({update:!this.state.update})}}
