@@ -1,9 +1,20 @@
 import React from 'react'
+import http from "../network/http";
 
 class Item extends React.Component{
 
     onClick = (id) => {
-        console.log(id)
+        http
+            .http
+            .post("/timeslot/book",{
+                timeSlotId: id
+            })
+            .then((res)=>{
+                this.props.onUpdate();
+                if(res.data===false){
+                    alert("Booking failed")
+                }
+            })
         this.props.onClick(true);
     }
 

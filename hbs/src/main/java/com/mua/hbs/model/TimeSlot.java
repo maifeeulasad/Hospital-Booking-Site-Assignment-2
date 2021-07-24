@@ -18,4 +18,6 @@ public class TimeSlot {
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+
+    private Boolean taken=false;
 }

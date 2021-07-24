@@ -3,9 +3,7 @@ package com.mua.hbs.controller;
 import com.mua.hbs.model.TimeSlot;
 import com.mua.hbs.service.TimeSlotService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,11 @@ public class TimeSlotController {
     @GetMapping("/available")
     public List<TimeSlot> getAll(){
         return service.getAll();
+    }
+
+    @PostMapping("/book")
+    public Boolean book(@RequestBody TimeSlot timeSlot){
+        return service.book(timeSlot);
     }
 
 }
