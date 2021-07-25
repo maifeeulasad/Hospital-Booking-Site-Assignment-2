@@ -9,7 +9,6 @@ class UserDetails extends React.Component{
     render() {
         return(
             <div>
-
                 <Card>
                     <CardContent>
                         <Typography variant="h5" component="h5">

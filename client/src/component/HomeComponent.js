@@ -76,6 +76,7 @@ class HomeComponent extends React.Component{
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.state.update!==prevState.update){
             this.fetchList();
+            this.fetchMineList();
         }
         if(this.state.isAdmin===true && prevState.isAdmin===false){
             this.fetchDetailedList();
