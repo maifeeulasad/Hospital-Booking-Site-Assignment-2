@@ -3,10 +3,7 @@ package com.mua.hbs.controller;
 import com.mua.hbs.model.LoginCredential;
 import com.mua.hbs.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -23,6 +20,11 @@ public class AuthController {
     @PostMapping("/login")
     public String login(@RequestBody LoginCredential loginCredential){
         return service.login(loginCredential);
+    }
+
+    @GetMapping("/check")
+    public Boolean check(){
+        return service.check();
     }
 
 }

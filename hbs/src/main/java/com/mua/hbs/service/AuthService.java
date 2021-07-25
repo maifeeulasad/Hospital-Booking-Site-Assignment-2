@@ -5,6 +5,8 @@ import com.mua.hbs.model.User;
 import com.mua.hbs.provider.JwtTokenProvider;
 import com.mua.hbs.repository.LoginCredentialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,6 +43,11 @@ public class AuthService {
             return "";
         }
         return "";
+    }
+
+    public Boolean check(){
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.isAuthenticated();
     }
 
 }
