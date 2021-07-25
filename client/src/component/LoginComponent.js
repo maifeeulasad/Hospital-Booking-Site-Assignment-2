@@ -4,7 +4,6 @@ import Login from 'react-mua-login'
 
 import 'react-mua-login/dist/index.css'
 import http from "../network/http";
-import AuthHoc from "./AuthHoc";
 
 class LoginComponent extends React.Component{
 
@@ -30,4 +29,4 @@ class LoginComponent extends React.Component{
 
 }
 
-export default AuthHoc(LoginComponent);
+export default LoginComponent;
