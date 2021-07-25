@@ -60,3 +60,12 @@
     "axios": "^0.21.1",                    # for fetching data
     "qs": "^6.10.1",                       # json parsing
  ```
+ 
+ ## Dependencies - Spring Boot:
+ ```
+ spring-boot-starter-data-jpa  #persistant API
+ spring-boot-starter-web       # rest API
+ lombok                        #getter,setter, constructor
+ h2                            #sql database
+ java-jwt + spring-boot-starter-security + spring-boot-starter-webflux   #security
+ ```
