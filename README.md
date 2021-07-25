@@ -6,7 +6,7 @@
  - in terminal:
    ```
    yarn
-   yarn start
+   yarn start #dev mode, to build, package.json needs to be changed
    ```
    
 ## Server
