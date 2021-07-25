@@ -108,6 +108,7 @@ class HomeComponent extends React.Component{
     renderTimePicker = () => {
         return(
             <div className={"paddingtop"}>
+                <h2>Pick a time to add</h2>
                 <TextField
                     id="datetime-local"
                     label="Starting Time"
@@ -164,6 +165,15 @@ class HomeComponent extends React.Component{
         )
     }
 
+    renderMy = () => {
+        return(
+            <div>
+                <h2>Mine List</h2>
+                {this.renderMineList()}
+            </div>
+        )
+    }
+
     render() {
         return(
             <div>
@@ -171,9 +181,11 @@ class HomeComponent extends React.Component{
                 <div className={this.state.disable ? "disabled" : ""}>
                     <h2>Available List</h2>
                     {this.renderList()}
+                    {
+                        !this.state.isAdmin &&
+                        this.renderMy()
+                    }
                     {this.state.isAdmin && this.renderTimePicker()}
-                    <h2>Mine List</h2>
-                    {this.renderMineList()}
                 </div>
             </div>
         )
