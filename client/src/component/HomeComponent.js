@@ -11,6 +11,7 @@ class HomeComponent extends React.Component{
         super(props);
         this.state={
             list:[],
+            listMine:[],
             disable:false,
             update:false,
             isAdmin:false,
@@ -26,6 +27,18 @@ class HomeComponent extends React.Component{
             .then((res)=>{
                 this.setState({
                     list:res.data,
+                    disable:false
+                })
+            })
+    }
+
+    fetchMineList = () => {
+        http
+            .http
+            .get("/timeslot/mine")
+            .then((res)=>{
+                this.setState({
+                    listMine:res.data,
                     disable:false
                 })
             })
@@ -57,6 +70,7 @@ class HomeComponent extends React.Component{
     componentDidMount() {
         this.checkAdmin();
         this.fetchList();
+        this.fetchMineList();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -73,6 +87,18 @@ class HomeComponent extends React.Component{
             return <Item
                 isAdmin={this.state.isAdmin}
                 item={item}
+                key={item["timeSlotId"]}
+                onUpdate={()=>{this.setState({update:!this.state.update})}}
+                onClick={()=>{this.setState({disable:true})}}/>
+        })
+    }
+
+    renderMineList = () => {
+        return this.state.listMine.map((item)=>{
+            return <Item
+                isAdmin={this.state.isAdmin}
+                item={item}
+                mine={true}
                 key={item["timeSlotId"]}
                 onUpdate={()=>{this.setState({update:!this.state.update})}}
                 onClick={()=>{this.setState({disable:true})}}/>
@@ -143,8 +169,11 @@ class HomeComponent extends React.Component{
             <div>
                 <h1>home</h1>
                 <div className={this.state.disable ? "disabled" : ""}>
+                    <h2>Available List</h2>
                     {this.renderList()}
                     {this.state.isAdmin && this.renderTimePicker()}
+                    <h2>Mine List</h2>
+                    {this.renderMineList()}
                 </div>
             </div>
         )

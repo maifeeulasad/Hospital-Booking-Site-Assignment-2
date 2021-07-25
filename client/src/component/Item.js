@@ -50,7 +50,7 @@ class Item extends React.Component{
                         />
                     </CardContent>
                     {
-                        !this.props.isAdmin &&
+                        !this.props.isAdmin && !this.props.mine &&
                         <CardActions>
                             <Button
                                 onClick={()=>{

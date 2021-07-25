@@ -32,6 +32,18 @@ public class TimeSlotService {
         }
     }
 
+    public List<TimeSlotRestricted> getMine(){
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication.isAuthenticated()) {
+            UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+            List<User> users = userRepository.findByLoginCredentialUsername(userPrincipal.getUsername());
+            User user=users.get(0);
+            return timeSlotRepository.findMine(user.getUserId());
+        }else{
+            return new ArrayList<>();
+        }
+    }
+
     public List<TimeSlot> getAll(){
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(authentication.isAuthenticated()) {

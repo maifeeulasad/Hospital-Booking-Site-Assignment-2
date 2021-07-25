@@ -12,11 +12,11 @@ class UserDetails extends React.Component{
 
                 <Card>
                     <CardContent>
-                        <Typography variant="h5" component="h2">
+                        <Typography variant="h5" component="h5">
                             {(this.props.user===undefined || this.props.user===null) ? "" : "Booked by:"}
                         </Typography>
                         <Typography color="textSecondary">
-                            {(this.props.user===undefined || this.props.user===null) ? "Available" : this.props.user["userId"]}
+                            {(this.props.user===undefined || this.props.user===null) ? "Available" : "User ID: " + this.props.user["userId"]}
                         </Typography>
                     </CardContent>
                 </Card>
