@@ -17,3 +17,15 @@
    mvn install
    ./mvnw spring-boot:run
    ```
+
+# Admin View (With no booking):
+![](https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/blob/doc/snaps/Screenshot%20from%202021-07-25%2013-18-17.png)
+
+# Admin View (With booking):
+![](https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/blob/doc/snaps/Screenshot%20from%202021-07-25%2013-18-57.png)
+
+# User View (with no booking):
+![](https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/blob/doc/snaps/Screenshot%20from%202021-07-25%2013-18-39.png)
+
+# User View (with booking):
+![](https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/blob/doc/snaps/Screenshot%20from%202021-07-25%2013-18-45.png)
