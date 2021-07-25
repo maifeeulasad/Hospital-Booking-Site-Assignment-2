@@ -29,3 +29,9 @@
 
 # User View (with booking):
 ![](https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/blob/doc/snaps/Screenshot%20from%202021-07-25%2013-18-45.png)
+
+# Login
+![](https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/blob/doc/snaps/Screenshot%20from%202021-07-25%2013-24-02.png)
+
+# Signup
+![](https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/blob/doc/snaps/Screenshot%20from%202021-07-25%2013-24-07.png)
