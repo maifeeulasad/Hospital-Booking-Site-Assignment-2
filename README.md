@@ -1,5 +1,15 @@
 # Hospital-Booking-Site-Assignment-2
 
+## Features
+ - Login/Signup
+ - Auth JWT based
+ - If Admin,
+  - Can create booking/slot
+  - Can view every booking available or booked
+ - If User,
+  - Can only see own's list
+  - Can book
+
 ## Client: 
  - https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/tree/main/client
  - navigate
