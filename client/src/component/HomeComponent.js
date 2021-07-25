@@ -2,6 +2,10 @@ import React from 'react';
 import Item from "./Item";
 import http from "../network/http";
 import {TextField,Button} from "@material-ui/core";
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 import './common.css'
 
@@ -81,7 +85,7 @@ class HomeComponent extends React.Component{
 
     renderTimePicker = () => {
         return(
-            <div>
+            <div className={"paddingtop"}>
                 <TextField
                     id="datetime-local"
                     label="Starting Time"
