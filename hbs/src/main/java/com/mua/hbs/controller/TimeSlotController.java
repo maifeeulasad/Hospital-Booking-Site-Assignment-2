@@ -20,6 +20,11 @@ public class TimeSlotController {
         return service.getAllAvailable();
     }
 
+    @GetMapping("/mine")
+    public List<TimeSlotRestricted> getMine(){
+        return service.getMine();
+    }
+
     @GetMapping("/detailed")
     public List<TimeSlot> getAll(){
         return service.getAll();

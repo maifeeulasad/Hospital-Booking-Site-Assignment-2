@@ -15,4 +15,7 @@ public interface TimeSlotRepository extends JpaRepository<TimeSlot,Long> {
 
     @Query("select new com.mua.hbs.dto.TimeSlotRestricted(ts) from TimeSlot ts where ts.taken=false")
     List<TimeSlotRestricted>findAvailable();
+
+    @Query("select new com.mua.hbs.dto.TimeSlotRestricted(ts) from TimeSlot ts where ts.user.userId=?1")
+    List<TimeSlotRestricted>findMine(Long userId);
 }
