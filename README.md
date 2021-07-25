@@ -27,6 +27,18 @@
    mvn install
    ./mvnw spring-boot:run
    ```
+## API details:
+```
+GET: /auth/check -> if the jwt token is valid, based on that route to login or home
+POST: /auth/login({username,password}) -> login and return jwt based on valid login credential
+POST: /auth/signup({username,password}) -> create login credential, and username is unique
+GET: /timeslot/available -> returns all avialable timeslots
+POST: /timeslot/book({id}) -> book if the timeslot is available, non admin
+POST: /timeslot/create({startTime,endTime}) -> create timeslot, admin only
+GET: /timeslot/detailed  -> get all timeslot with user details, admin only
+GET: /timeslot/mine -> get all timeslot allocated for me
+GET: /user/isadmin -> check if user is admin, render feature
+```
 
 # Admin View (With no booking):
 ![](https://github.com/maifeeulasad/Hospital-Booking-Site-Assignment-2/blob/doc/snaps/Screenshot%20from%202021-07-25%2013-18-17.png)
