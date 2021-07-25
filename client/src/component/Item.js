@@ -26,7 +26,7 @@ class Item extends React.Component{
     render() {
         return(
             <div>
-                <Card>
+                <Card elevation={10}>
                     <CardContent>
                         <TextField
                             disabled
